@@ -1,0 +1,74 @@
+------------------DATA ANALYST ASSIGNMENT------------
+Q1
+1.Data : raw facts ex:just nums
+2.Data Analytics : Analysing the data and make a decision. ex:weather reporting,movie booking
+3.Diff b/w data and information : Data is the raw facts,unorganized data,unprocessed data.for ex,18.Information is the meaningful data and processed data.for ex,age=18(so it has some meaning)
+Q2
+Business benefits:
+Better decision making instead of guessing,Understand customer behaviour,Increases sales and revenue,Reduces cost and improve efficiency,Predict future demand or risks
+Q3
+Types of data and its nature
+a) Customer age- Structured-Quantitative
+b) Netflix movie review text-Unstructured-Qualitative
+c) Bank transaction table-Structured-Quantitative
+d) Uber gps coordinates-Structured-Quantitative
+e) Amazon product ratings(1-5)-Structured-Quantitative
+Q4
+Convert Unstructured to Structured
+[sentence to make table with three columns are feedback_text,sentiment,issue_type]
+Given: "The delivery was and customer support was poor"
+ans:
+sentiment field has negative in the table
+issue type field has delay delivery in the table
+Q5
+Business questions to analytical type mapping
+Why are users uninstalling our app? - Diagnostics
+How many users logged in yesterday? - Descriptinve
+What will next month's revenue be? - Predictive
+which action should reduce churn? -Prescriptive
+Q6
+Company: Netflix
+a)Collected data:Profile data,Viewing history(thriller mov suggest),Subscription data(offer),Search behaviour(many users-so add kdrama),Device data(adjust video based on internet).
+b)Business objective behind collecting data: Personalization & regional targeting,Content recommendation,UX improvemnet & trends,Revenue,Performance optimization
+ex: More Tamil movies shown to Tamil Nadu users.
+Q7
+Netflix – Analytics Use Cases
+Descriptive Analytics:
+Business problem: Netflix wants to understand how the platform performed in the previous month.
+Data used: Viewing history, watch time, number of active users, genre preferences, device usage.
+Expected output: Reports showing total hours watched, most popular shows, top genres, and peak usage time.
+Business value: Helps Netflix understand customer behavior, measure performance, and identify trending content for future planning.
+
+Diagnostic Analytics:
+Business problem: Subscription cancellations increased in some regions and Netflix wants to know the reason.
+Data used: Cancellation records, user complaints, buffering logs, content availability, customer feedback.
+Expected output: Identification of root causes such as poor streaming quality or lack of new content.
+Business value: Enables Netflix to fix issues quickly, improve service quality, and reduce customer churn.
+
+Predictive Analytics:
+Business problem: Netflix wants to predict which users are likely to cancel their subscription soon.
+Data used: Login frequency, watch history, past churn data, subscription activity, complaints.
+Expected output: Churn probability score or list of high-risk users.
+Business value: Helps in taking early retention actions like offers or personalized recommendations to prevent revenue loss.
+
+Prescriptive Analytics:
+Business problem: Netflix wants to decide the best actions to increase engagement and retain customers.
+Data used: Predictive results, user preferences, recommendation data, pricing information, A/B testing results.
+Expected output: Suggested actions such as recommending specific shows, sending discounts, or personalized notifications.
+Business value: Improves user satisfaction, increases retention, and maximizes revenue.
+Q8"COMPANY REVENUE FALLING"
+1.When did the revenue start falling?(first question)
+2.Customer comaplaints(first request)
+3.Number of active customers(metrics analyse)
+Q9 summary for CEO
+Data analytics means studying our company data to understand what is happening in the business.
+It shows us what customers like, where we are earning, and where we are losing money.
+This helps us find problems early and make better decisions faster.
+With these insights, we can improve sales, reduce costs, and keep customers happy.
+-----In short, data analytics helps the company grow smarter and stay ahead of competitors.-----
+
+
+
+
+
+
