@@ -1,0 +1,164 @@
+-----DATA ANALYST (ASSIGNMENT 2) -----
+DBMS ARCHITECTURE:
+Q1
+External Level (View Level)
+
+Purpose:
+Shows only the required data to a specific user. Hides the rest.
+Real-Life Example:
+In a bank app, a customer can see their balance and transactions, but not internal audit logs or other customers’ data.
+If removed:
+Every user sees the entire database → security risk, no privacy, no customization.
+
+Conceptual Level (Logical Level)
+
+Purpose:
+Defines overall structure of database (tables, relationships, constraints).
+Acts as a bridge between physical storage and users.
+Real-Life Example:
+In a banking system:
+Customer table
+Account table
+Relationship: One customer - many accounts
+If removed:
+No standard structure - data becomes inconsistent, no relationships, chaos in design.
+
+Internal Level (Physical Level)
+
+Purpose:
+Defines how data is physically stored (files, indexing, storage methods).
+Real-Life Example:
+Data stored using B+ trees or hashing for faster search.
+If removed:
+No control over storage - slow performance, inefficient memory usage.
+Q2
+Design views
+1.Customer View:Account balance,Transaction history,Personal details,loan status(cannot see another customer data)
+2.Bank Teller View:Customer account details,KYC information...
+3.Branch Manager View:Branch profit/loss,loan approvals,Employee performance.
+Separation idss important for:Security,data privacy,role based access control,Better performance.
+Q3
+Consistency-Data is same everywhere. ex:if 1000/- is withdrawn,every atm shows updated balance immediately.
+Availability-System always responds or sys keep working.ex:insta likes count load instantly.
+Partition tolerance-Handles network splits.ex:if one data center disconnects,other centers continue operating.
+Q4
+Bank transaction system-CP-Must maintain correct balance (Consistency). During network issue, may block transactions.
+Instagram likes counter-AP-Always available; slight delay in likes count is acceptable.
+Netflix movie streaming-AP-Streaming must continue even if data sync is delayed.
+Airline ticket booking-CP-Cannot allow double booking.Consistency is critical.
+Q5. Uber Scenario
+If data centers lose connection:
+Risks:
+Double ride assignment
+Incorrect pricing
+Driver availability mismatch
+Payment inconsistency
+CAP property:
+CP (Consistency + Partition Tolerance.
+Reason:
+Wrong billing or ride duplication affects trust and money.
+Better to delay booking than create inconsistent ride data.
+
+Q6. ACID Properties
+Atomicity-Transaction happens completely or not at all.
+Bank Example:
+₹5000 transfer must debit and credit together.
+If it fails:
+Money may be debited but not credited.
+
+Consistency-Database must always remain correct and valid.
+Bank Example:
+Total money before and after transfer must be same.//total b/w two users
+If it fails:
+Balance may become wrong or negative.
+
+Isolation-Transactions should not affect each other.
+Bank Example:
+Two people withdrawing at same time — only one should succeed.
+If it fails:
+Both may withdraw and balance becomes incorrect.
+
+Durability-Once transaction is completed, it is permanently saved.
+Bank Example:
+After transfer success message, money must stay transferred.
+If it fails:
+After system crash, transaction may disappear.
+
+Q7
+User transfers ₹5000.
+System crashes after debit but before credit.
+Which ACID property failed?
+Atomicity
+What should DBMS do?
+It should rollback the transaction (restore original balance).
+Business impact if not corrected?
+Customer loses money, complaints increase, bank reputation damaged.
+
+Q8
+Transaction Boundaries (Online Shopping)
+Which steps must be one transaction?
+Make payment, Update inventory(stock avail), and Generate invoice(official bill)must be one transaction.
+Why?
+Because all three steps must either complete together or fail together.
+If one step fails, the system should rollback to avoid wrong payment, incorrect stock, or missing invoice.
+
+Q9
+Concurrency 
+Scenario:
+Two users try to book the last movie ticket at the same time.
+1.Possible Data Problems
+Double booking (same seat given to two users)
+Lost update problem
+Incorrect seat availability shown
+System may show 1 seat available to both users.
+2.Business Impact-Customer complaints,Refund processing,Reputation damage,Loss of customer trust
+3.How Concurrency Control Prevents It
+System uses locking (locks the seat while booking)
+Only one transaction is allowed at a time,Other transaction must wait
+Ensures only one user successfully books the last ticket,This prevents double booking and keeps data correct.
+
+Q10
+Shared Lock:
+Used for reading data.
+Many users can read at the same time.
+Example: Students viewing results online.
+
+Exclusive Lock:
+Used for updating data.
+Only one user can access it.
+Example: Updating bank account balance.
+
+Q11. Deadlock
+Situation:
+Transaction A locks Resource 1.
+Transaction B locks Resource 2.
+Both wait for each other.
+Problem:
+Neither can continue → Deadlock.
+Solution:
+Always lock resources in the same order.
+Example: First lock Table 1, then Table 2 for all transactions.
+
+Q12.Indexing 
+1. Library Example:
+Without index → You search every book one by one.
+With index → Books arranged alphabetically by title or author → Faster search.
+2. Amazon Search Example:
+When you search “iPhone”:
+Amazon doesn’t scan all products.
+It uses an index on product name.So results appear instantly.Index improves search speed.
+
+Q13
+Index Type
+Searching customer by Customer_ID - Primary Index (Clustered Index) - Customer_ID is unique and primary key. Fast direct lookup.
+Sorting orders by Order Date - Clustered Index - Data physically stored in date order-faster sorting.
+Searching products by Product Name - Non-Clustered Index - Product name is not unique. Helps quick searching.
+
+Q14. Sales Dashboard Slow
+1. Questions to ask DBA (Database Administrator):
+Are indexes created?
+Is the table very large?
+Are queries optimized?
+Are there too many joins?
+2. Causes of slowness: Missing index,Full table scan,Large data,Heavy joins
+3. How index helps: Speeds up searching,Reduces full scan,Improves join performance.
